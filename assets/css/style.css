@@ -1,0 +1,21 @@
+.jumbotron {
+    text-align: center;
+}
+
+.panel {
+    border-top: 2px solid #343a40;
+    padding: 4px;
+    background-color: #343a40;
+    border-radius: 5px;
+    opacity: 25%;
+}
+
+.panel-heading {
+    color: #fff;
+    border-radius: 3px;
+}
+
+.col-heading,
+.panel-body {
+    color: #fff;
+}
