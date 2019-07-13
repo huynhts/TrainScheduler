@@ -3,8 +3,6 @@
 }
 
 .panel {
-    border-top: 2px solid #343a40;
-    padding: 4px;
     background-color: #343a40;
     border-radius: 5px;
     opacity: 25%;
@@ -18,4 +16,23 @@
 .col-heading,
 .panel-body {
     color: #fff;
+}
+
+#panel-1,
+#panel-2 {
+    padding: 10px 10px;
+}
+
+.new-row {
+    color: rgb(146, 145, 145);
+}
+
+tr {
+    color:white;
+}
+
+td:hover {
+    background-color: white;
+    opacity: 40%;
+    color: red;
 }
