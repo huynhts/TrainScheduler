@@ -24,15 +24,17 @@
 }
 
 .new-row {
-    color: rgb(146, 145, 145);
+    color: rgb(255, 0, 0);
 }
 
-tr {
+.table {
     color:white;
 }
 
+td[disabled] {
+    color:green;
+} 
+
 td:hover {
-    background-color: white;
-    opacity: 40%;
     color: red;
 }
