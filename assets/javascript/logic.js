@@ -41,12 +41,6 @@ $('.btn-primary').on('click', function(){
     //code to push child data to parent object train
     database.ref().push(trains);
 
-    console.log(trains.Name);
-    console.log(trains.Destination);
-    console.log(trains.Time);
-    console.log(trains.Frequency);
-
-
     //calls reset function to clear user input fileds
     formReset();
 });
@@ -62,31 +56,28 @@ function formReset() {
 
 //add train row to table data in html for all trains added to Firebase db
 database.ref().on("child_added", function(childSnapshot) { 
-    console.log(childSnapshot.val());
 
     var trainName = childSnapshot.val().Name;
     var trainDestination = childSnapshot.val().Destination;
     var frequency = childSnapshot.val().Frequency;
-    console.log(frequency);
 
+    //logs start of train
     var startTime = childSnapshot.val().Time;
-    console.log(startTime);
 
-    var convStartTime = moment.unix(startTime).format("hh:mm");
-    console.log(convStartTime);
-
+    //time difference between current time and start time of train
     var timeDiff = parseInt(startTime) - parseInt(moment().unix());
-    console.log(timeDiff);
 
+    //calculates the time apart from next expected train
     var tRemainder = timeDiff % parseInt(frequency)
-    console.log(tRemainder);
 
+    //calculates the time left within train running interval time
     var minutesAway = frequency - tRemainder;
-    console.log(minutesAway);
 
+    //calculates the next available train
     var nextTrain = moment().add(minutesAway, "minutes");
     var prettyNextTrain = moment(nextTrain).format("hh:mm A");
 
+    //adds new row to html to display train info
     var newRow = $("<tr>");
     newRow.attr("class", "new-row");
     
