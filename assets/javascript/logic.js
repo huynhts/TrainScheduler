@@ -14,10 +14,6 @@ var database = firebase.database();
 
 $(document).ready(function(){
 
-//global variables
-var trainName = '';
-var trainDestination = '';
-var frequency = '';
 
 //on click function takes user input and pushes data to firebase
 $('.btn-primary').on('click', function(){
@@ -74,7 +70,7 @@ database.ref().on("child_added", function(childSnapshot) {
     var minutesAway = frequency - tRemainder;
 
     //calculates the next available train
-    var nextTrain = moment().add(minutesAway, "minutes");
+    var nextTrain = moment().add(frequency, "minutes");
     var prettyNextTrain = moment(nextTrain).format("hh:mm A");
 
     //adds new row to html to display train info
